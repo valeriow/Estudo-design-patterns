@@ -53,7 +53,7 @@ public class CalculadorDeDescontoTeste {
 		assertEquals(0.0,desconto);
   }
 	
-	@Test
+  @Test
   public void testaDescontoMaisDe5ItensComMaisde500Reais() {
 		Orcamento orcamento = new Orcamento(1000);
 		orcamento.adicionaItem(new Item("Lápis1",5));
@@ -66,5 +66,18 @@ public class CalculadorDeDescontoTeste {
 		double desconto = calculadora.calcula(orcamento);
 		assertEquals(100.0,desconto);
   }
-	
+
+  @Test
+  public void testaDescontoPorVendaCasada() {
+		Orcamento orcamento = new Orcamento(100);
+		orcamento.adicionaItem(new Item("Lápis1",5));
+		orcamento.adicionaItem(new Item("Lápis2",5));
+		orcamento.adicionaItem(new Item("LAPIS",5));
+		orcamento.adicionaItem(new Item("Lápis4",5));
+		orcamento.adicionaItem(new Item("CANETA",5));
+		
+		double desconto = calculadora.calcula(orcamento);
+		assertEquals(5.0,desconto);
+  }
+
 }

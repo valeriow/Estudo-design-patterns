@@ -26,4 +26,13 @@ public class Orcamento {
 	public double getValor() {
 		return valor;
 	}
+	
+	public boolean existeItem(String nomeDoItem){ 
+		for (Item item : getItens()){
+			if ( item.getNome().equals(nomeDoItem) )
+				return true;
+		}
+		return false;
+	}
+	
 }
